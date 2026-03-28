@@ -294,4 +294,40 @@
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://nerdfreakuser.github.io/vettedai/reviews/best-fitness-trackers-no-subscription-2026</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://nerdfreakuser.github.io/vettedai/category/ai-tools</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nerdfreakuser.github.io/vettedai/category/fitness-tech</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nerdfreakuser.github.io/vettedai/category/home-office</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nerdfreakuser.github.io/vettedai/category/software</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nerdfreakuser.github.io/vettedai/category/tech-reviews</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
