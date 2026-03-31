@@ -11,6 +11,6 @@
   <path d="M10 24l5 5 8-10" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   <!-- Wordmark -->
   <text x="40" y="34" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" letter-spacing="-0.5">
-    <tspan fill="#ededed">V</tspan><tspan fill="#f97316">3</tspan><tspan fill="#ededed">tt</tspan><tspan fill="#f97316">3</tspan><tspan fill="#ededed">d</tspan>
+    <tspan fill="#ededed">V</tspan></text><text transform="translate(62,58) scale(1,-1)" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="800"><tspan fill="#f97316">3</tspan></text><text x="76" y="34" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="800" letter-spacing="-0.5"><tspan fill="#ededed">tt</tspan><tspan fill="#f97316">3</tspan><tspan fill="#ededed">d</tspan>
   </text>
 </svg>
