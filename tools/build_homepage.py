@@ -161,16 +161,7 @@ def build_page(reviews):
 </main>
 
 <!-- Nav -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-card-border">
-<nav class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-<a href="/" class="flex items-center gap-2 font-bold">{SVG_ZAP_SM}<span>VettedAI</span></a>
-<div class="flex items-center gap-4 text-sm">
-<a href="/#reviews" class="text-muted hover:text-accent transition-colors">Reviews</a>
-<a href="/deals.html" class="text-muted hover:text-accent transition-colors">Deals</a>
-<a href="/about.html" class="text-muted hover:text-accent transition-colors">About</a>
-</div>
-</nav>
-</header>
+<nav class="border-b border-card-border bg-card/80 backdrop-blur-md sticky top-0 z-50"><div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between"><a class="flex items-center gap-2 group" href="/"><div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">{SVG_ZAP}</div><span class="font-bold text-lg tracking-tight">Vetted<span class="text-accent">AI</span></span></a><div class="flex items-center gap-6 text-sm"><a class="text-muted hover:text-foreground transition-colors" href="/">Reviews</a><a class="text-muted hover:text-foreground transition-colors" href="/deals.html">Deals</a><a class="text-muted hover:text-foreground transition-colors" href="/about.html">About</a></div></div></nav>
 
 </body>
 </html>'''
