@@ -16,8 +16,8 @@
   <rect x="480" y="160" width="72" height="72" rx="18" fill="#f97316"/>
   <path d="M500 196l11 11 22-26" stroke="#0a0a0a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   <!-- Brand name -->
-  <text x="530" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" letter-spacing="-1">
-    <tspan fill="#ededed">V</tspan></text><text transform="translate(570,580) scale(1,-1)" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800"><tspan fill="#f97316">3</tspan></text><text x="608" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" letter-spacing="-1"><tspan fill="#ededed">tt</tspan><tspan fill="#f97316">3</tspan><tspan fill="#ededed">d</tspan>
+  <text x="600" y="310" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" letter-spacing="-1">
+    <tspan fill="#ededed">V</tspan><tspan fill="#f97316">3</tspan><tspan fill="#ededed">tt</tspan><tspan fill="#f97316">3</tspan><tspan fill="#ededed">d</tspan>
   </text>
   <!-- Tagline -->
   <text x="600" y="370" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#a3a3a3" font-weight="400">
