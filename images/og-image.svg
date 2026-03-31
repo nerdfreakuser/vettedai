@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#1a1a1a" stroke-width="0.5"/>
+    </pattern>
+    <linearGradient id="og-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#0a0a0a;stop-opacity:0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#og-grad)"/>
+  <!-- Logo mark -->
+  <rect x="480" y="160" width="72" height="72" rx="18" fill="#f97316"/>
+  <path d="M500 196l11 11 22-26" stroke="#0a0a0a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Brand name -->
+  <text x="600" y="310" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" letter-spacing="-1">
+    <tspan fill="#ededed">V</tspan><tspan fill="#f97316">3</tspan><tspan fill="#ededed">tt</tspan><tspan fill="#f97316">3</tspan><tspan fill="#ededed">d</tspan>
+  </text>
+  <!-- Tagline -->
+  <text x="600" y="370" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="24" fill="#a3a3a3" font-weight="400">
+    AI-Powered Product Reviews &amp; Deals
+  </text>
+  <!-- Stats bar -->
+  <text x="600" y="440" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#666" font-weight="500" letter-spacing="3">
+    DATA-DRIVEN  •  HONEST REVIEWS  •  UPDATED DAILY
+  </text>
+  <!-- Bottom accent line -->
+  <rect x="0" y="620" width="1200" height="10" fill="#f97316" opacity="0.8"/>
+</svg>

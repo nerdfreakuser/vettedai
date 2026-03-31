@@ -1,4 +1,4 @@
-# VettedAI Agent Guide — How to Add Content
+# V3tt3d Agent Guide — How to Add Content
 
 This site is **pure static HTML + Tailwind CSS**. No JavaScript framework, no hydration, no build step. Just edit HTML files and deploy.
 

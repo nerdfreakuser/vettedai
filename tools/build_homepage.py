@@ -69,18 +69,20 @@ def build_page(reviews):
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>VettedAI — AI-Powered Product Reviews &amp; Deals</title>
-<meta name="description" content="Honest, AI-vetted product reviews and deals. Find the best gear, tools, and tech — researched by AI, verified by data."/>
+<title>V3tt3d — AI-Powered Product Reviews &amp; Deals</title>
+<meta name="description" content="Honest, AI-vetted product reviews and deals. Every product researched, compared, and rated by AI. No sponsored placements — just data-driven picks."/>
 <meta name="robots" content="index, follow"/>
-<meta property="og:title" content="VettedAI — AI-Powered Product Reviews &amp; Deals"/>
-<meta property="og:description" content="Honest, AI-vetted product reviews. Find the best gear, tools, and tech."/>
+<meta property="og:title" content="V3tt3d — AI-Powered Product Reviews &amp; Deals"/>
+<meta property="og:description" content="Every product researched, compared, and rated by AI. No sponsored placements — just data-driven picks that save you money."/>
 <meta property="og:url" content="https://v3tt3d.com"/>
-<meta property="og:site_name" content="VettedAI"/>
+<meta property="og:site_name" content="V3tt3d"/>
 <meta property="og:type" content="website"/>
+<meta property="og:image" content="https://v3tt3d.com/images/og-image.svg"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="VettedAI — AI-Powered Product Reviews"/>
-<meta name="twitter:description" content="Honest, AI-vetted product reviews. Find the best gear, tools, and tech."/>
-<link rel="icon" href="/favicon.ico" sizes="256x256" type="image/x-icon"/>
+<meta name="twitter:title" content="V3tt3d — AI-Powered Product Reviews"/>
+<meta name="twitter:description" content="Every product researched, compared, and rated by AI. No sponsored placements — just data-driven picks."/>
+<meta name="twitter:image" content="https://v3tt3d.com/images/og-image.svg"/>
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml"/>
 <link rel="preload" href="/_next/static/media/797e433ab948586e-s.p.dbea232f.woff2" as="font" crossorigin="" type="font/woff2"/>
 <link rel="preload" href="/_next/static/media/caa3a2e1cccd8315-s.p.853070df.woff2" as="font" crossorigin="" type="font/woff2"/>
 {preloads}
@@ -90,7 +92,7 @@ def build_page(reviews):
 <body>
 
 <!-- Nav -->
-<nav class="border-b border-card-border bg-card/80 backdrop-blur-md sticky top-0 z-50"><div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between"><a class="flex items-center gap-2 group" href="/"><div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">{SVG_ZAP}</div><span class="font-bold text-lg tracking-tight">Vetted<span class="text-accent">AI</span></span></a><div class="flex items-center gap-6 text-sm"><a class="text-muted hover:text-foreground transition-colors" href="/">Reviews</a><a class="text-muted hover:text-foreground transition-colors" href="/deals.html">Deals</a><a class="text-muted hover:text-foreground transition-colors" href="/about.html">About</a></div></div></nav>
+<nav class="border-b border-card-border bg-card/80 backdrop-blur-md sticky top-0 z-50"><div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between"><a class="flex items-center gap-3 group" href="/"><div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"><path d="M8 16l5 5 10-12" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="font-bold text-lg tracking-tight">V<span class="text-accent">3</span>tt<span class="text-accent">3</span>d</span></a><div class="flex items-center gap-6 text-sm"><a class="text-muted hover:text-foreground transition-colors" href="/">Reviews</a><a class="text-muted hover:text-foreground transition-colors" href="/deals.html">Deals</a><a class="text-muted hover:text-foreground transition-colors" href="/about.html">About</a></div></div></nav>
 
 <main class="min-h-screen">
 <div>
@@ -101,7 +103,7 @@ def build_page(reviews):
 <div class="max-w-6xl mx-auto px-4 pt-16 pb-10 relative">
 <div class="text-center max-w-3xl mx-auto">
 <div class="inline-flex items-center gap-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-1.5 text-sm text-accent mb-6">
-{SVG_ZAP}AI-Powered Product Intelligence
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"><rect width="32" height="32" rx="8" fill="#f97316"/><path d="M8 16l5 5 10-12" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>AI-Powered Product Intelligence
 </div>
 <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 leading-tight">Buy smarter with AI-vetted reviews</h1>
 <p class="text-lg text-muted max-w-2xl mx-auto mb-8">Every product researched, compared, and rated by AI. No sponsored placements. No BS. Just data-driven picks that save you money.</p>
@@ -152,7 +154,7 @@ def build_page(reviews):
 <!-- Footer -->
 <footer class="max-w-6xl mx-auto px-4 py-8 mt-4 border-t border-card-border">
 <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted">
-<div class="flex items-center gap-2">{SVG_ZAP_SM}<span class="font-bold text-foreground">VettedAI</span><span>— AI-powered product intelligence</span></div>
+<div class="flex items-center gap-2"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4"><rect width="32" height="32" rx="8" fill="#f97316"/><path d="M8 16l5 5 10-12" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="font-bold text-foreground">V<span class="text-accent">3</span>tt<span class="text-accent">3</span>d</span><span>— AI-powered product intelligence</span></div>
 <div class="flex items-center gap-4">
 <a href="/about.html" class="hover:text-accent transition-colors">About</a>
 <a href="/deals.html" class="hover:text-accent transition-colors">Deals</a>
