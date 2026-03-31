@@ -32,14 +32,14 @@ command = "npm run build"
   [build.services]
 
 [[headers]]
-for = "/_next/static/*"
+for = "/vettedai/_next/static/*"
 
   [headers.values]
   Cache-Control = "public, max-age=31536000, immutable"
 
 [[redirects]]
-from = "/*/__next.*.txt"
-to = "/index.html"
+from = "/vettedai/*/__next.*.txt"
+to = "/vettedai/index.html"
 status = 200
 force = false
 
@@ -50,8 +50,8 @@ force = false
   [redirects.headers]
 
 [[redirects]]
-from = "/_next/image"
-to = "/.netlify/images?url=:url&w=:width&q=:quality"
+from = "/vettedai/_next/image"
+to = "/vettedai/.netlify/images?url=:url&w=:width&q=:quality"
 status = 200
 force = false
 
@@ -65,8 +65,8 @@ force = false
   [redirects.headers]
 
 [[redirects]]
-from = "/_ipx/*"
-to = "/.netlify/images?url=:url&w=:width&q=:quality"
+from = "/vettedai/_ipx/*"
+to = "/vettedai/.netlify/images?url=:url&w=:width&q=:quality"
 status = 200
 force = false
 
