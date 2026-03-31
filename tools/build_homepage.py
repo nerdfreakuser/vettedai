@@ -88,6 +88,10 @@ def build_page(reviews):
 <link rel="canonical" href="https://v3tt3d.com"/>
 </head>
 <body>
+
+<!-- Nav -->
+<nav class="border-b border-card-border bg-card/80 backdrop-blur-md sticky top-0 z-50"><div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between"><a class="flex items-center gap-2 group" href="/"><div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">{SVG_ZAP}</div><span class="font-bold text-lg tracking-tight">Vetted<span class="text-accent">AI</span></span></a><div class="flex items-center gap-6 text-sm"><a class="text-muted hover:text-foreground transition-colors" href="/">Reviews</a><a class="text-muted hover:text-foreground transition-colors" href="/deals.html">Deals</a><a class="text-muted hover:text-foreground transition-colors" href="/about.html">About</a></div></div></nav>
+
 <main class="min-h-screen">
 <div>
 
@@ -159,9 +163,6 @@ def build_page(reviews):
 
 </div>
 </main>
-
-<!-- Nav -->
-<nav class="border-b border-card-border bg-card/80 backdrop-blur-md sticky top-0 z-50"><div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between"><a class="flex items-center gap-2 group" href="/"><div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">{SVG_ZAP}</div><span class="font-bold text-lg tracking-tight">Vetted<span class="text-accent">AI</span></span></a><div class="flex items-center gap-6 text-sm"><a class="text-muted hover:text-foreground transition-colors" href="/">Reviews</a><a class="text-muted hover:text-foreground transition-colors" href="/deals.html">Deals</a><a class="text-muted hover:text-foreground transition-colors" href="/about.html">About</a></div></div></nav>
 
 </body>
 </html>'''
