@@ -378,4 +378,40 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://vettedai.netlify.app/reviews/best-budget-gaming-laptops-2026</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://vettedai.netlify.app/category/ai-tools</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vettedai.netlify.app/category/fitness-tech</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vettedai.netlify.app/category/home-office</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vettedai.netlify.app/category/software</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://vettedai.netlify.app/category/tech-reviews</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
