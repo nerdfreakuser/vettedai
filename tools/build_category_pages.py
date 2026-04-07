@@ -81,7 +81,11 @@ def build_category_page(slug, cat_info, reviews):
     for r in reviews[:4]:
         preloads += f'<link rel="preload" href="{r["img"]}" as="image"/>'
 
-    return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+    return f'''<!DOCTYPE html><html lang="en"><head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8V3818FTLF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','G-8V3818FTLF');</script>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>{cat_info["name"]} Reviews &amp; Comparisons — V3tt3d</title>
 <meta name="description" content="Browse {count} AI-vetted, data-driven reviews in {cat_info["name"]}. {cat_info["intro"]}"/>
 <meta name="robots" content="index, follow"/>
