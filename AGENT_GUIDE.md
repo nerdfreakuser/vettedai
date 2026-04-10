@@ -1,6 +1,10 @@
 # V3tt3d Agent Guide — How to Add Content
 
-This site is **pure static HTML + Tailwind CSS**. No JavaScript framework, no hydration, no build step. Just edit HTML files and deploy.
+This site is **pure static HTML + Tailwind CSS**. No JavaScript framework, no hydration, no build step. Just edit HTML files, rebuild generated pages, and deploy via GitHub push.
+
+**Canonical domain:** `https://v3tt3d.com`
+
+**Do not use Netlify zip deploys.** Push to the GitHub repo connected to Netlify instead.
 
 ---
 
@@ -40,13 +44,14 @@ Add a new entry at the **top** of the array in `reviews_data.json`:
 {
     "slug": "best-example-2026",
     "title": "The Best Example Products in 2026",
-    "img": "/vettedai/images/best-example-2026-cover.png",
+    "img": "/images/best-example-2026-cover.png",
     "alt": "The Best Example Products in 2026",
     "desc": "Short description for the card (1-2 sentences).",
     "date": "Mar 31, 2026",
     "deals": "4",
     "cat": "Tech Reviews",
-    "rating": "4.8"
+    "rating": "4.8",
+    "top_picks": ["Product One", "Product Two", "Product Three"]
 }
 ```
 
@@ -61,13 +66,16 @@ python tools/build_homepage.py
 This regenerates `index.html` from `reviews_data.json`. It:
 - Builds all review cards
 - Updates the featured review (first item in the array)
+- Shows `top_picks` in the featured card when present
 - Updates the review count automatically
 - Produces clean HTML with zero JavaScript dependencies
 
 ### Step 5: Update supporting files
 
-- `sitemap.xml` — add the new review URL
+- `python tools/build_category_pages.py`
+- `sitemap.xml` — add the new review URL with `https://v3tt3d.com/...`
 - `deals.html` — add deal cards if applicable
+- If repairing old pages, run `python tools/fix_review_urls.py`
 
 ## Common Mistakes
 
@@ -75,7 +83,8 @@ This regenerates `index.html` from `reviews_data.json`. It:
 |---------|---------|-----|
 | Edit index.html directly instead of reviews_data.json | Changes lost on next rebuild | Always edit `reviews_data.json`, then run `build_homepage.py` |
 | Copy review HTML with old RSC scripts | Stale content on review page | Strip all `self.__next_f.push` script tags |
-| Wrong JSON-LD schema | Bad SEO data | Update `<script type="application/ld+json">` block |
+| Wrong JSON-LD schema or old domain URLs | Bad SEO data, duplicate canonicals | Keep schema/canonical/og:url on `https://v3tt3d.com/...` only |
+| Forgot `top_picks` in reviews_data.json | Featured card looks weak | Add the first 2-3 products to `top_picks` |
 | Forgot to run build_homepage.py | New review not on homepage | Run `python tools/build_homepage.py` |
 
 ---

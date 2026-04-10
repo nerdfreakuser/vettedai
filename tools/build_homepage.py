@@ -45,7 +45,17 @@ def build_review_card(r):
 
 def build_featured_card(r):
     """Build the featured review section."""
-    return f'''<section class="max-w-6xl mx-auto px-4 pt-6 pb-2"><a class="group block" href="/reviews/{r["slug"]}"><div class="relative bg-card border border-card-border rounded-2xl overflow-hidden hover:border-accent/50 transition-all duration-300"><div class="md:flex"><div class="md:w-1/2 aspect-[1200/630] md:aspect-auto relative overflow-hidden bg-card-border"><img src="{r["img"]}" alt="{r["alt"]}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/><span class="absolute top-4 left-4 bg-accent/90 text-black text-xs font-bold px-3 py-1 rounded-full">Featured Review</span></div><div class="md:w-1/2 p-6 md:p-8 flex flex-col justify-center"><div class="flex items-center gap-3 mb-3"><span class="text-xs bg-accent/15 text-accent px-3 py-1 rounded-full">{r["cat"] or "Tech Reviews"}</span><span class="text-xs text-muted flex items-center gap-1">{SVG_STAR_FEATURED}{r["rating"]}/5</span></div><h2 class="text-2xl md:text-3xl font-bold mb-3 group-hover:text-accent transition-colors leading-tight">{r["title"]}</h2><p class="text-muted leading-relaxed mb-4 line-clamp-2">{r["desc"]}</p><span class="inline-flex items-center gap-2 text-accent font-medium group-hover:gap-3 transition-all">Read Full Review {SVG_ARROW_LG}</span><div class="mt-4 pt-4 border-t border-card-border"><p class="text-xs text-muted mb-2 font-medium">Top Picks</p><div class="space-y-1.5"><div class="flex items-center justify-between text-sm"><span class="flex items-center gap-2 truncate">{SVG_EXTERNAL}<span class="truncate">Top Pick #1</span></span><span class="text-accent font-bold ml-2 shrink-0">See Review</span></div></div></div></div></div></div></a></section>'''
+    # Build top picks rows if available
+    top_picks = r.get("top_picks", [])
+    if top_picks:
+        picks_html = "".join(
+            f'<div class="flex items-center gap-2 text-sm truncate">{SVG_EXTERNAL}<span class="truncate">{pick}</span></div>'
+            for pick in top_picks[:3]
+        )
+        picks_section = f'<div class="mt-4 pt-4 border-t border-card-border"><p class="text-xs text-muted mb-2 font-medium">Top Picks</p><div class="space-y-1.5">{picks_html}</div></div>'
+    else:
+        picks_section = ""
+    return f'''<section class="max-w-6xl mx-auto px-4 pt-6 pb-2"><a class="group block" href="/reviews/{r["slug"]}"><div class="relative bg-card border border-card-border rounded-2xl overflow-hidden hover:border-accent/50 transition-all duration-300"><div class="md:flex"><div class="md:w-1/2 aspect-[1200/630] md:aspect-auto relative overflow-hidden bg-card-border"><img src="{r["img"]}" alt="{r["alt"]}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/><span class="absolute top-4 left-4 bg-accent/90 text-black text-xs font-bold px-3 py-1 rounded-full">Featured Review</span></div><div class="md:w-1/2 p-6 md:p-8 flex flex-col justify-center"><div class="flex items-center gap-3 mb-3"><span class="text-xs bg-accent/15 text-accent px-3 py-1 rounded-full">{r["cat"] or "Tech Reviews"}</span><span class="text-xs text-muted flex items-center gap-1">{SVG_STAR_FEATURED}{r["rating"]}/5</span></div><h2 class="text-2xl md:text-3xl font-bold mb-3 group-hover:text-accent transition-colors leading-tight">{r["title"]}</h2><p class="text-muted leading-relaxed mb-4 line-clamp-2">{r["desc"]}</p><span class="inline-flex items-center gap-2 text-accent font-medium group-hover:gap-3 transition-all">Read Full Review {SVG_ARROW_LG}</span>{picks_section}</div></div></div></a></section>'''
 
 
 def build_page(reviews):
