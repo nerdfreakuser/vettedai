@@ -61,7 +61,9 @@ def build_featured_card(r):
 def build_page(reviews):
     """Build the complete index.html page."""
     count = len(reviews)
-    featured = reviews[0]
+    # Prefer reviews with featured=True; fall back to most recent
+    featured_list = [r for r in reviews if r.get('featured')]
+    featured = featured_list[0] if featured_list else reviews[0]
     
     # Preload first 8 cover images
     preloads = ""
