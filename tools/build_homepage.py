@@ -37,6 +37,24 @@ CATEGORIES = [
     ("ai-tools", "🤖", "AI Tools"),
 ]
 
+MONEY_PAGE_SLUGS = [
+    "nordvpn-vs-expressvpn-2026",
+    "best-web-hosting-services-2026",
+    "best-email-marketing-tools-2026",
+]
+
+MONEY_PAGE_BADGES = {
+    "nordvpn-vs-expressvpn-2026": "VPN showdown",
+    "best-web-hosting-services-2026": "Hosting deals",
+    "best-email-marketing-tools-2026": "Email ROI",
+}
+
+MONEY_PAGE_REASONS = {
+    "nordvpn-vs-expressvpn-2026": "Compare price, speed, and privacy before you buy.",
+    "best-web-hosting-services-2026": "Find the best-value host for launches, migrations, and growth.",
+    "best-email-marketing-tools-2026": "Pick the platform with the best automation and revenue upside.",
+}
+
 
 def build_review_card(r):
     """Build a single review card HTML."""
@@ -56,6 +74,24 @@ def build_featured_card(r):
     else:
         picks_section = ""
     return f'''<section class="max-w-6xl mx-auto px-4 pt-6 pb-2"><a class="group block" href="/reviews/{r["slug"]}"><div class="relative bg-card border border-card-border rounded-2xl overflow-hidden hover:border-accent/50 transition-all duration-300"><div class="md:flex"><div class="md:w-1/2 aspect-[1200/630] md:aspect-auto relative overflow-hidden bg-card-border"><img src="{r["img"]}" alt="{r["alt"]}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"/><span class="absolute top-4 left-4 bg-accent/90 text-black text-xs font-bold px-3 py-1 rounded-full">Featured Review</span></div><div class="md:w-1/2 p-6 md:p-8 flex flex-col justify-center"><div class="flex items-center gap-3 mb-3"><span class="text-xs bg-accent/15 text-accent px-3 py-1 rounded-full">{r["cat"] or "Tech Reviews"}</span><span class="text-xs text-muted flex items-center gap-1">{SVG_STAR_FEATURED}{r["rating"]}/5</span></div><h2 class="text-2xl md:text-3xl font-bold mb-3 group-hover:text-accent transition-colors leading-tight">{r["title"]}</h2><p class="text-muted leading-relaxed mb-4 line-clamp-2">{r["desc"]}</p><span class="inline-flex items-center gap-2 text-accent font-medium group-hover:gap-3 transition-all">Read Full Review {SVG_ARROW_LG}</span>{picks_section}</div></div></div></a></section>'''
+
+
+def build_money_funnel(reviews):
+    """Build a high-intent money page section near the top of the homepage."""
+    review_map = {r.get("slug"): r for r in reviews}
+    selected = [review_map[slug] for slug in MONEY_PAGE_SLUGS if slug in review_map]
+    if not selected:
+        return ""
+
+    cards = []
+    for r in selected:
+        badge = MONEY_PAGE_BADGES.get(r["slug"], "Top pick")
+        reason = MONEY_PAGE_REASONS.get(r["slug"], r["desc"])
+        cards.append(
+            f'''<a class="group block" href="/reviews/{r["slug"]}"><article class="h-full bg-card border border-card-border rounded-2xl p-5 hover:border-accent/50 transition-all duration-300 hover:-translate-y-1"><div class="flex items-center justify-between gap-3 mb-3"><span class="text-[11px] uppercase tracking-[0.18em] text-accent font-semibold">{badge}</span><span class="text-xs text-muted flex items-center gap-1">{SVG_STAR}{r["rating"]}</span></div><h3 class="text-lg font-bold leading-snug mb-2 group-hover:text-accent transition-colors">{r["title"]}</h3><p class="text-sm text-muted leading-relaxed mb-4">{reason}</p><div class="flex items-center justify-between pt-4 border-t border-card-border text-sm"><span class="text-muted">Buyer-intent page</span><span class="text-accent font-medium flex items-center gap-2 group-hover:gap-3 transition-all">Open review {SVG_ARROW_LG}</span></div></article></a>'''
+        )
+
+    return f'''<section class="max-w-6xl mx-auto px-4 py-4"><div class="bg-gradient-to-r from-accent/10 via-accent/5 to-transparent border border-accent/20 rounded-2xl p-6"><div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-5"><div><p class="text-xs uppercase tracking-[0.22em] text-accent font-semibold mb-2">Best pages to click next</p><h2 class="text-2xl font-bold leading-tight">Start with the highest-conversion reviews</h2><p class="text-sm text-muted mt-2 max-w-2xl">If you're here to buy, compare, or switch, these are the most useful shortcuts on the site right now.</p></div><a href="/deals.html" class="inline-flex items-center gap-2 text-sm text-accent font-medium hover:gap-3 transition-all">See all deals {SVG_ARROW_LG}</a></div><div class="grid grid-cols-1 md:grid-cols-3 gap-4">{"".join(cards)}</div></div></section>'''
 
 
 def build_page(reviews):
@@ -133,6 +169,9 @@ def build_page(reviews):
 
 <!-- Featured Review -->
 {build_featured_card(featured)}
+
+<!-- Money Funnel -->
+{build_money_funnel(reviews)}
 
 <!-- Category Pills -->
 <section class="max-w-6xl mx-auto px-4 py-4">
