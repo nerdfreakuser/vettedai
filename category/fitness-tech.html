@@ -1,56 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
-<!-- Cookie consent + GA (GDPR-compliant) -->
-<script>
-(function(){
-  var CONSENT_KEY='v3tt3d_cookie_consent';
-  function loadGA(){
-    if(window.__gaLoaded)return;
-    window.__gaLoaded=true;
-    var s=document.createElement('script');
-    s.async=true;
-    s.src='https://www.googletagmanager.com/gtag/js?id=G-8V3818FTLF';
-    document.head.appendChild(s);
-    window.dataLayer=window.dataLayer||[];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js',new Date());
-    gtag('config','G-8V3818FTLF');
-  }
-  function hideBanner(){
-    var b=document.getElementById('v3-cookie-bar');
-    if(b)b.style.display='none';
-  }
-  function showBanner(){
-    document.addEventListener('DOMContentLoaded',function(){
-      var b=document.getElementById('v3-cookie-bar');
-      if(b)b.style.display='flex';
-    });
-  }
-  var consent=localStorage.getItem(CONSENT_KEY);
-  if(consent==='accepted'){loadGA();}
-  else if(consent!=='declined'){showBanner();}
-  document.addEventListener('DOMContentLoaded',function(){
-    var acc=document.getElementById('v3-cookie-accept');
-    var dec=document.getElementById('v3-cookie-decline');
-    if(acc)acc.addEventListener('click',function(){
-      localStorage.setItem(CONSENT_KEY,'accepted');
-      hideBanner();
-      loadGA();
-    });
-    if(dec)dec.addEventListener('click',function(){
-      localStorage.setItem(CONSENT_KEY,'declined');
-      hideBanner();
-    });
-  });
-})();
-</script>
-<!-- Cookie consent banner -->
-<div id="v3-cookie-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1a1a;border-top:1px solid #2a2a2a;padding:14px 20px;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
-<p style="margin:0;font-size:13px;color:#a0a0a0;flex:1;min-width:240px;">We use cookies to measure site traffic via Google Analytics. No advertising cookies. <a href="/cookies.html" style="color:#f97316;text-decoration:none;">Cookie Policy</a> · <a href="/privacy.html" style="color:#f97316;text-decoration:none;">Privacy Policy</a></p>
-<div style="display:flex;gap:8px;flex-shrink:0;">
-<button id="v3-cookie-decline" style="background:transparent;border:1px solid #444;color:#a0a0a0;padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;">Decline</button>
-<button id="v3-cookie-accept" style="background:#f97316;border:none;color:#0a0a0a;padding:7px 16px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;">Accept</button>
-</div>
-</div>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8V3818FTLF"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-8V3818FTLF');</script>
 <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Fitness Tech Reviews &amp; Comparisons — V3tt3d</title>
 <meta name="description" content="Browse 7 AI-vetted, data-driven reviews in Fitness Tech. Smartwatches, fitness trackers, rowing machines, massage guns, and under-desk treadmills — tested for accuracy and durability."/>
@@ -249,10 +200,6 @@
 <a href="/about.html" class="hover:text-accent transition-colors">About</a>
 <a href="/deals.html" class="hover:text-accent transition-colors">Deals</a>
 <a href="mailto:hello@v3tt3d.com" class="hover:text-accent transition-colors">Contact</a>
-<span class="text-card-border">|</span>
-<a href="/privacy.html" class="hover:text-accent transition-colors">Privacy</a>
-<a href="/terms.html" class="hover:text-accent transition-colors">Terms</a>
-<a href="/cookies.html" class="hover:text-accent transition-colors">Cookies</a>
 </div>
 </div>
 </footer>

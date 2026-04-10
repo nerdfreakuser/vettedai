@@ -1,5 +1,21 @@
 [
     {
+        "slug": "best-true-wireless-earbuds-2026",
+        "title": "The Best True Wireless Earbuds in 2026: Unwired Audio Perfection",
+        "img": "/images/best-true-wireless-earbuds-2026-cover.png",
+        "alt": "The Best True Wireless Earbuds in 2026: Unwired Audio Perfection",
+        "desc": "VettedAI tested the top true wireless earbuds of 2026, evaluating sound quality, ANC, battery life, and comfort to find your perfect audio companion.",
+        "date": "Apr 10, 2026",
+        "deals": "4",
+        "cat": "Tech Reviews",
+        "rating": "4.8",
+        "top_picks": [
+            "Sony WF-1000XM6",
+            "Sennheiser Momentum True Wireless 5",
+            "Anker Soundcore Liberty 5 Pro"
+        ]
+    },
+    {
         "slug": "best-seo-tools-2026",
         "title": "The Best SEO Tools in 2026: AI-Powered Dominance for Digital Marketers",
         "img": "/images/best-seo-tools-2026-cover.png",
@@ -447,7 +463,7 @@
         "title": "The Best Innovative AI Platforms of 2026: Tools That Are Actually Changing the Game",
         "img": "/images/best-innovative-ai-platforms-2026-cover.png",
         "alt": "The Best Innovative AI Platforms of 2026: Tools That Are Actually Changing the Game",
-        "desc": "We review the most exciting and genuinely useful AI platforms of 2026 \u00e2\u20ac\u201d from voice-first CV builders to AI writing assistants and beyond.",
+        "desc": "We review the most exciting and genuinely useful AI platforms of 2026 â€” from voice-first CV builders to AI writing assistants and beyond.",
         "date": "Mar 28, 2026",
         "deals": "4",
         "cat": "AI Tools",
@@ -1045,7 +1061,7 @@
         "cat": "AI Tools",
         "rating": "4.8",
         "top_picks": [
-            "Try Notion AI \u2014 Free Trial",
+            "Try Notion AI — Free Trial",
             "Get Raycast Pro",
             "Try Granola AI Notes"
         ]

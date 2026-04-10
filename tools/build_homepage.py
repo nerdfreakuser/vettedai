@@ -203,19 +203,3 @@ if __name__ == '__main__':
         f.write(html)
     
     print(f"Done! Saved {out_path} ({len(html):,} bytes)")
-
-    # ── UX polish pass ────────────────────────────────────────────────────────
-    # Always run after homepage rebuild to keep click-driving patterns
-    # applied across all pages. Idempotent — safe to run on already-patched files.
-    try:
-        import importlib.util
-        spec = importlib.util.spec_from_file_location(
-            'v3tt3d_ui_polish',
-            os.path.join(script_dir, 'v3tt3d_ui_polish.py')
-        )
-        polish = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(polish)
-        print('\nRunning UX polish pass...')
-        summary = polish.run(verbose=True)
-    except Exception as e:
-        print(f'[warn] UX polish skipped: {e}')
