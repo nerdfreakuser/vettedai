@@ -56,6 +56,41 @@ MONEY_PAGE_REASONS = {
 }
 
 
+NORDVPN_AFFILIATE = "https://go.nordvpn.net/aff_c?offer_id=15&aff_id=144442&url_id=902"
+
+
+def build_deal_strip():
+    """Build a high-visibility NordVPN deal strip above the fold."""
+    return f'''<section class="max-w-6xl mx-auto px-4 pt-4 pb-2">
+<a href="{NORDVPN_AFFILIATE}" target="_blank" rel="noopener sponsored" class="group block">
+<div class="relative bg-gradient-to-r from-[#1a1a2e] via-[#16213e] to-[#0f3460] border border-accent/30 rounded-2xl px-6 py-4 hover:border-accent/60 transition-all duration-300 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-r from-accent/5 to-transparent"></div>
+<div class="relative flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="flex-shrink-0 w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center border border-accent/20">
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+</div>
+<div>
+<div class="flex items-center gap-2 mb-0.5">
+<span class="text-[10px] uppercase tracking-[0.2em] text-accent font-bold">Today\'s Best Deal</span>
+<span class="text-[10px] bg-accent/20 text-accent px-2 py-0.5 rounded-full font-semibold">Limited time</span>
+</div>
+<p class="text-sm font-bold text-white leading-tight">NordVPN — Up to 72% off + 3 months free <span class="text-accent">on 2-year plans</span></p>
+<p class="text-xs text-slate-400 mt-0.5">Rated #1 VPN for speed &amp; privacy. 30-day money-back guarantee.</p>
+</div>
+</div>
+<div class="flex-shrink-0">
+<span class="inline-flex items-center gap-2 bg-accent text-black text-sm font-bold px-5 py-2.5 rounded-xl group-hover:bg-accent/90 transition-colors">
+Get Deal
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+</span>
+</div>
+</div>
+</div>
+</a>
+</section>'''
+
+
 def build_review_card(r):
     """Build a single review card HTML."""
     return f'''<a class="group block h-full" href="/reviews/{r["slug"]}"><article class="bg-card border border-card-border rounded-2xl overflow-hidden hover:border-accent/50 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"><div class="aspect-[1200/630] relative overflow-hidden bg-card-border"><img src="{r["img"]}" alt="{r["alt"]}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/><span class="absolute top-3 right-3 bg-accent/90 text-black text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 z-10 shadow-lg">{SVG_CART}{r["deals"]} deals</span></div><div class="p-5 flex flex-col flex-1"><div class="flex items-center gap-2 mb-2"><span class="text-xs bg-accent/15 text-accent px-2 py-0.5 rounded-full flex items-center gap-1 z-10 relative">{SVG_TAG}{r["cat"] or "Tech Reviews"}</span><span class="text-xs text-muted flex items-center gap-1">{SVG_STAR}{r["rating"]}</span></div><h3 class="font-semibold text-lg leading-snug mb-2 group-hover:text-accent transition-colors">{r["title"]}</h3><p class="text-sm text-muted leading-relaxed line-clamp-2 mb-3 flex-1">{r["desc"]}</p><div class="flex items-center justify-between pt-2 border-t border-card-border"><span class="text-xs text-muted">{r["date"]}</span><span class="text-xs text-accent flex items-center gap-1 group-hover:gap-2 transition-all font-medium">Read Review {SVG_ARROW}</span></div></div></article></a>'''
@@ -166,6 +201,9 @@ def build_page(reviews):
 </div>
 </div>
 </section>
+
+<!-- NordVPN Deal Strip -->
+{build_deal_strip()}
 
 <!-- Featured Review -->
 {build_featured_card(featured)}
