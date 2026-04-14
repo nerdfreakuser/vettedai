@@ -39,20 +39,20 @@ CATEGORIES = [
 
 MONEY_PAGE_SLUGS = [
     "nordvpn-vs-expressvpn-2026",
-    "best-web-hosting-services-2026",
-    "best-email-marketing-tools-2026",
+    "best-vpn-services-2026",
+    "nordvpn-coupon-2026",
 ]
 
 MONEY_PAGE_BADGES = {
     "nordvpn-vs-expressvpn-2026": "VPN showdown",
-    "best-web-hosting-services-2026": "Hosting deals",
-    "best-email-marketing-tools-2026": "Email ROI",
+    "best-vpn-services-2026": "Best VPNs",
+    "nordvpn-coupon-2026": "🔥 Save 72%",
 }
 
 MONEY_PAGE_REASONS = {
     "nordvpn-vs-expressvpn-2026": "Compare price, speed, and privacy before you buy.",
-    "best-web-hosting-services-2026": "Find the best-value host for launches, migrations, and growth.",
-    "best-email-marketing-tools-2026": "Pick the platform with the best automation and revenue upside.",
+    "best-vpn-services-2026": "The definitive 2026 VPN ranking — with deals and discount links.",
+    "nordvpn-coupon-2026": "Current NordVPN promo codes verified for April 2026. Up to 72% off.",
 }
 
 
