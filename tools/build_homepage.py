@@ -39,19 +39,19 @@ CATEGORIES = [
 
 MONEY_PAGE_SLUGS = [
     "nordvpn-vs-expressvpn-2026",
-    "best-vpn-services-2026",
+    "best-web-hosting-services-2026",
     "best-password-managers-2026",
 ]
 
 MONEY_PAGE_BADGES = {
     "nordvpn-vs-expressvpn-2026": "VPN showdown",
-    "best-vpn-services-2026": "Best VPNs",
+    "best-web-hosting-services-2026": "Site performance",
     "best-password-managers-2026": "Security picks",
 }
 
 MONEY_PAGE_REASONS = {
     "nordvpn-vs-expressvpn-2026": "Compare price, speed, and privacy before you buy.",
-    "best-vpn-services-2026": "The definitive 2026 VPN ranking — with deals and discount links.",
+    "best-web-hosting-services-2026": "Fast, reliable hosting ranked by performance, features, and value.",
     "best-password-managers-2026": "1Password, NordPass, Bitwarden and more — tested and ranked for 2026.",
 }
 
