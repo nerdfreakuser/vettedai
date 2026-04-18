@@ -38,20 +38,30 @@ CATEGORIES = [
 ]
 
 MONEY_PAGE_SLUGS = [
+    "best-vpn-services-2026",
     "nordvpn-vs-expressvpn-2026",
-    "best-web-hosting-services-2026",
     "best-password-managers-2026",
 ]
 
+HOMEPAGE_PRIMARY_CTA_SLUG = "nordvpn-vs-expressvpn-2026"
+HOMEPAGE_SECONDARY_CTA_SLUG = "best-vpn-services-2026"
+FEATURED_PRIORITY_SLUGS = [
+    "nordvpn-vs-expressvpn-2026",
+    "best-vpn-services-2026",
+    "best-password-managers-2026",
+    "nordvpn-review-2026",
+    "best-web-hosting-services-2026",
+]
+
 MONEY_PAGE_BADGES = {
+    "best-vpn-services-2026": "Best VPN picks",
     "nordvpn-vs-expressvpn-2026": "VPN showdown",
-    "best-web-hosting-services-2026": "Site performance",
     "best-password-managers-2026": "Security picks",
 }
 
 MONEY_PAGE_REASONS = {
-    "nordvpn-vs-expressvpn-2026": "Compare price, speed, and privacy before you buy.",
-    "best-web-hosting-services-2026": "Fast, reliable hosting ranked by performance, features, and value.",
+    "best-vpn-services-2026": "See the strongest VPN offers, speed winners, and privacy picks in one buyer-intent roundup.",
+    "nordvpn-vs-expressvpn-2026": "Compare price, speed, streaming, and privacy before you buy.",
     "best-password-managers-2026": "1Password, NordPass, Bitwarden and more — tested and ranked for 2026.",
 }
 
@@ -126,16 +136,25 @@ def build_money_funnel(reviews):
             f'''<a class="group block" href="/reviews/{r["slug"]}"><article class="h-full bg-card border border-card-border rounded-2xl p-5 hover:border-accent/50 transition-all duration-300 hover:-translate-y-1"><div class="flex items-center justify-between gap-3 mb-3"><span class="text-[11px] uppercase tracking-[0.18em] text-accent font-semibold">{badge}</span><span class="text-xs text-muted flex items-center gap-1">{SVG_STAR}{r["rating"]}</span></div><h3 class="text-lg font-bold leading-snug mb-2 group-hover:text-accent transition-colors">{r["title"]}</h3><p class="text-sm text-muted leading-relaxed mb-4">{reason}</p><div class="flex items-center justify-between pt-4 border-t border-card-border text-sm"><span class="text-muted">Read review</span><span class="text-accent font-medium flex items-center gap-2 group-hover:gap-3 transition-all">Open review {SVG_ARROW_LG}</span></div></article></a>'''
         )
 
-    return f'''<section class="max-w-6xl mx-auto px-4 py-4"><div class="bg-card border border-card-border rounded-2xl p-6"><div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-5"><div><p class="text-xs uppercase tracking-[0.22em] text-accent font-semibold mb-2">Editor’s shortlist</p><h2 class="text-2xl font-bold leading-tight">Popular guides worth starting with</h2><p class="text-sm text-muted mt-2 max-w-2xl">Our most-read reviews in software, security, and online tools.</p></div><a href="/deals.html" class="inline-flex items-center gap-2 text-sm text-accent font-medium hover:gap-3 transition-all">See all deals {SVG_ARROW_LG}</a></div><div class="grid grid-cols-1 md:grid-cols-3 gap-4">{"".join(cards)}</div></div></section>'''
+    return f'''<section class="max-w-6xl mx-auto px-4 py-4"><div class="bg-card border border-card-border rounded-2xl p-6"><div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-5"><div><p class="text-xs uppercase tracking-[0.22em] text-accent font-semibold mb-2">Start here</p><h2 class="text-2xl font-bold leading-tight">Best pages for buyers, not browsers</h2><p class="text-sm text-muted mt-2 max-w-2xl">Traffic is landing on the homepage first, so these are the fastest paths into our strongest VPN and security money pages.</p></div><a href="/deals.html" class="inline-flex items-center gap-2 text-sm text-accent font-medium hover:gap-3 transition-all">See all deals {SVG_ARROW_LG}</a></div><div class="grid grid-cols-1 md:grid-cols-3 gap-4">{"".join(cards)}</div></div></section>'''
 
 
 def build_page(reviews):
     """Build the complete index.html page."""
     count = len(reviews)
-    # Prefer reviews with featured=True; fall back to most recent
-    featured_list = [r for r in reviews if r.get('featured')]
-    featured = featured_list[0] if featured_list else reviews[0]
-    
+    review_map = {r.get("slug"): r for r in reviews}
+
+    # Prefer high-intent money pages first, then any manually featured review, then most recent.
+    featured = next(
+        (review_map[slug] for slug in FEATURED_PRIORITY_SLUGS if slug in review_map),
+        None,
+    )
+    if not featured:
+        featured_list = [r for r in reviews if r.get('featured')]
+        featured = featured_list[0] if featured_list else reviews[0]
+    primary_cta = review_map.get(HOMEPAGE_PRIMARY_CTA_SLUG)
+    secondary_cta = review_map.get(HOMEPAGE_SECONDARY_CTA_SLUG)
+
     # Preload first 8 cover images
     preloads = ""
     for r in reviews[:8]:
@@ -192,7 +211,11 @@ def build_page(reviews):
 <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"><rect width="32" height="32" rx="8" fill="#f97316"/><path d="M8 16l5 5 10-12" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>AI-Powered Product Intelligence
 </div>
 <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 leading-tight">Buy smarter with AI-vetted reviews</h1>
-<p class="text-lg text-muted max-w-2xl mx-auto mb-8">Every product researched, compared, and rated by AI. No sponsored placements. No BS. Just data-driven picks that save you money.</p>
+<p class="text-lg text-muted max-w-2xl mx-auto mb-6">Every product researched, compared, and rated by AI. No sponsored placements. No BS. Start with our highest-intent VPN, hosting, and security guides.</p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
+{f'''<a href="/reviews/{primary_cta["slug"]}" class="inline-flex items-center gap-2 bg-accent text-black font-semibold px-5 py-3 rounded-xl hover:opacity-90 transition-opacity">Compare top VPNs {SVG_ARROW_LG}</a>''' if primary_cta else ''}
+{f'''<a href="/reviews/{secondary_cta["slug"]}" class="inline-flex items-center gap-2 border border-card-border bg-card text-foreground font-semibold px-5 py-3 rounded-xl hover:border-accent/40 hover:text-accent transition-colors">See the best VPN picks {SVG_ARROW_LG}</a>''' if secondary_cta else ''}
+</div>
 <div class="flex items-center justify-center gap-6 text-sm text-muted">
 <span class="flex items-center gap-1.5">{SVG_BAR_CHART}<strong>{count}</strong> reviews</span>
 <span class="flex items-center gap-1.5">{SVG_CLOCK}Updated daily</span>
