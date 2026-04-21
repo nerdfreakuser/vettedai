@@ -41,6 +41,9 @@ MONEY_PAGE_SLUGS = [
     "best-vpn-services-2026",
     "nordvpn-vs-expressvpn-2026",
     "best-password-managers-2026",
+    "best-web-hosting-services-2026",
+    "best-web-hosting-wordpress-2026",
+    "best-email-marketing-tools-2026",
 ]
 
 HOMEPAGE_PRIMARY_CTA_SLUG = "nordvpn-vs-expressvpn-2026"
@@ -57,12 +60,18 @@ MONEY_PAGE_BADGES = {
     "best-vpn-services-2026": "Best VPN picks",
     "nordvpn-vs-expressvpn-2026": "VPN showdown",
     "best-password-managers-2026": "Security picks",
+    "best-web-hosting-services-2026": "Site performance",
+    "best-web-hosting-wordpress-2026": "WordPress hosting",
+    "best-email-marketing-tools-2026": "Email marketing",
 }
 
 MONEY_PAGE_REASONS = {
-    "best-vpn-services-2026": "See the strongest VPN offers, speed winners, and privacy picks in one buyer-intent roundup.",
-    "nordvpn-vs-expressvpn-2026": "Compare price, speed, streaming, and privacy before you buy.",
-    "best-password-managers-2026": "1Password, NordPass, Bitwarden and more — tested and ranked for 2026.",
+    "best-vpn-services-2026": "See the strongest VPN offers, speed winners, and privacy picks in one practical roundup.",
+    "nordvpn-vs-expressvpn-2026": "Compare price, speed, streaming, and privacy before you choose.",
+    "best-password-managers-2026": "1Password, NordPass, Bitwarden and more, tested and ranked for 2026.",
+    "best-web-hosting-services-2026": "Shortlist the fastest hosts for performance, uptime, support, and value.",
+    "best-web-hosting-wordpress-2026": "Find the strongest WordPress hosting options for speed, support, and easy setup.",
+    "best-email-marketing-tools-2026": "See which email platforms stand out for automation, deliverability, and growth.",
 }
 
 
@@ -140,44 +149,60 @@ def build_money_funnel(reviews):
 
 
 def build_quick_start_links(reviews):
-    """Build a tighter above-the-fold path into high-intent pages."""
+    """Build an editorial shortlist that routes homepage traffic into priority money pages."""
     review_map = {r.get("slug"): r for r in reviews}
     quick_links = [
         {
-            "label": "Compare first",
+            "slug": "nordvpn-vs-expressvpn-2026",
+            "label": "Side-by-side comparison",
             "title": "NordVPN vs ExpressVPN",
-            "desc": "Fastest route for buyers deciding between the two biggest VPN brands.",
-            "href": f'/reviews/{HOMEPAGE_PRIMARY_CTA_SLUG}',
+            "desc": "For readers choosing between the two biggest VPN names.",
         },
         {
-            "label": "Best overall picks",
+            "slug": "best-vpn-services-2026",
+            "label": "Privacy essentials",
             "title": "Best VPN Services",
-            "desc": "Broad buyer guide with top picks, pricing context, and strongest offers.",
-            "href": f'/reviews/{HOMEPAGE_SECONDARY_CTA_SLUG}',
+            "desc": "Start here for the strongest all-round VPN picks and value options.",
         },
         {
-            "label": "Live offers",
-            "title": "Deals page",
-            "desc": "Jump straight to affiliate-ready offers and product deal roundups.",
-            "href": '/deals.html',
+            "slug": "best-password-managers-2026",
+            "label": "Security picks",
+            "title": "Best Password Managers",
+            "desc": "A fast route to the top tools for safer logins across devices.",
+        },
+        {
+            "slug": "best-web-hosting-services-2026",
+            "label": "Site performance",
+            "title": "Best Web Hosting Services",
+            "desc": "Compare the hosts that stood out for uptime, speed, and support.",
+        },
+        {
+            "slug": "best-web-hosting-wordpress-2026",
+            "label": "Best for use case",
+            "title": "Best WordPress Hosting",
+            "desc": "Built for readers launching or upgrading a WordPress site this year.",
+        },
+        {
+            "slug": "best-email-marketing-tools-2026",
+            "label": "Growth tools",
+            "title": "Best Email Marketing Tools",
+            "desc": "Our most useful picks for automations, newsletters, and lead capture.",
         },
     ]
 
-    available_links = []
-    for item in quick_links:
-        href = item["href"]
-        if href == '/deals.html' or review_map.get(href.split('/')[-1]):
-            available_links.append(item)
+    available_links = [
+        item for item in quick_links if review_map.get(item["slug"])
+    ]
 
     if not available_links:
         return ""
 
     cards = "".join(
-        f'''<a class="group block" href="{item["href"]}"><div class="h-full bg-card border border-card-border rounded-2xl p-4 hover:border-accent/50 transition-all duration-300 hover:-translate-y-1"><p class="text-[11px] uppercase tracking-[0.18em] text-accent font-semibold mb-2">{item["label"]}</p><h3 class="font-bold text-base leading-snug mb-2 group-hover:text-accent transition-colors">{item["title"]}</h3><p class="text-sm text-muted leading-relaxed mb-3">{item["desc"]}</p><span class="inline-flex items-center gap-2 text-sm text-accent font-medium group-hover:gap-3 transition-all">Open now {SVG_ARROW_LG}</span></div></a>'''
+        f'''<a class="group block" href="/reviews/{item["slug"]}"><div class="h-full bg-card border border-card-border rounded-2xl p-4 hover:border-accent/50 transition-all duration-300 hover:-translate-y-1"><p class="text-[11px] uppercase tracking-[0.18em] text-accent font-semibold mb-2">{item["label"]}</p><h3 class="font-bold text-base leading-snug mb-2 group-hover:text-accent transition-colors">{item["title"]}</h3><p class="text-sm text-muted leading-relaxed mb-3">{item["desc"]}</p><span class="inline-flex items-center gap-2 text-sm text-accent font-medium group-hover:gap-3 transition-all">Open guide {SVG_ARROW_LG}</span></div></a>'''
         for item in available_links
     )
 
-    return f'''<section class="max-w-6xl mx-auto px-4 py-2"><div class="bg-card/60 border border-card-border rounded-2xl p-5"><div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-4"><div><p class="text-xs uppercase tracking-[0.2em] text-accent font-semibold mb-1">Quick start</p><h2 class="text-xl font-bold leading-tight">Pick the next click instead of bouncing</h2></div><p class="text-sm text-muted max-w-2xl">The homepage is getting nearly all the traffic, so these links now sit higher to push visitors straight into money pages and live deals.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-4">{cards}</div></div></section>'''
+    return f'''<section class="max-w-6xl mx-auto px-4 py-2"><div class="bg-card/60 border border-card-border rounded-2xl p-5"><div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-4"><div><p class="text-xs uppercase tracking-[0.2em] text-accent font-semibold mb-1">Editor's shortlist</p><h2 class="text-xl font-bold leading-tight">Popular guides worth starting with</h2></div><p class="text-sm text-muted max-w-2xl">The homepage is still doing most of the work, so this shortlist now pushes readers straight into our top VPN, hosting, password, and email software guides.</p></div><div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">{cards}</div></div></section>'''
 
 
 def build_page(reviews):
