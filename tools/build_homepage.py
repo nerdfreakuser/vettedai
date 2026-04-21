@@ -139,6 +139,47 @@ def build_money_funnel(reviews):
     return f'''<section class="max-w-6xl mx-auto px-4 py-4"><div class="bg-card border border-card-border rounded-2xl p-6"><div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-5"><div><p class="text-xs uppercase tracking-[0.22em] text-accent font-semibold mb-2">Start here</p><h2 class="text-2xl font-bold leading-tight">Best pages for buyers, not browsers</h2><p class="text-sm text-muted mt-2 max-w-2xl">Traffic is landing on the homepage first, so these are the fastest paths into our strongest VPN and security money pages.</p></div><a href="/deals.html" class="inline-flex items-center gap-2 text-sm text-accent font-medium hover:gap-3 transition-all">See all deals {SVG_ARROW_LG}</a></div><div class="grid grid-cols-1 md:grid-cols-3 gap-4">{"".join(cards)}</div></div></section>'''
 
 
+def build_quick_start_links(reviews):
+    """Build a tighter above-the-fold path into high-intent pages."""
+    review_map = {r.get("slug"): r for r in reviews}
+    quick_links = [
+        {
+            "label": "Compare first",
+            "title": "NordVPN vs ExpressVPN",
+            "desc": "Fastest route for buyers deciding between the two biggest VPN brands.",
+            "href": f'/reviews/{HOMEPAGE_PRIMARY_CTA_SLUG}',
+        },
+        {
+            "label": "Best overall picks",
+            "title": "Best VPN Services",
+            "desc": "Broad buyer guide with top picks, pricing context, and strongest offers.",
+            "href": f'/reviews/{HOMEPAGE_SECONDARY_CTA_SLUG}',
+        },
+        {
+            "label": "Live offers",
+            "title": "Deals page",
+            "desc": "Jump straight to affiliate-ready offers and product deal roundups.",
+            "href": '/deals.html',
+        },
+    ]
+
+    available_links = []
+    for item in quick_links:
+        href = item["href"]
+        if href == '/deals.html' or review_map.get(href.split('/')[-1]):
+            available_links.append(item)
+
+    if not available_links:
+        return ""
+
+    cards = "".join(
+        f'''<a class="group block" href="{item["href"]}"><div class="h-full bg-card border border-card-border rounded-2xl p-4 hover:border-accent/50 transition-all duration-300 hover:-translate-y-1"><p class="text-[11px] uppercase tracking-[0.18em] text-accent font-semibold mb-2">{item["label"]}</p><h3 class="font-bold text-base leading-snug mb-2 group-hover:text-accent transition-colors">{item["title"]}</h3><p class="text-sm text-muted leading-relaxed mb-3">{item["desc"]}</p><span class="inline-flex items-center gap-2 text-sm text-accent font-medium group-hover:gap-3 transition-all">Open now {SVG_ARROW_LG}</span></div></a>'''
+        for item in available_links
+    )
+
+    return f'''<section class="max-w-6xl mx-auto px-4 py-2"><div class="bg-card/60 border border-card-border rounded-2xl p-5"><div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-4"><div><p class="text-xs uppercase tracking-[0.2em] text-accent font-semibold mb-1">Quick start</p><h2 class="text-xl font-bold leading-tight">Pick the next click instead of bouncing</h2></div><p class="text-sm text-muted max-w-2xl">The homepage is getting nearly all the traffic, so these links now sit higher to push visitors straight into money pages and live deals.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-4">{cards}</div></div></section>'''
+
+
 def build_page(reviews):
     """Build the complete index.html page."""
     count = len(reviews)
@@ -224,6 +265,9 @@ def build_page(reviews):
 </div>
 </div>
 </section>
+
+<!-- Quick Start Links -->
+{build_quick_start_links(reviews)}
 
 <!-- NordVPN Deal Strip -->
 {build_deal_strip()}
