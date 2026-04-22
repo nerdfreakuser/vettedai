@@ -47,7 +47,7 @@ MONEY_PAGE_SLUGS = [
 ]
 
 HOMEPAGE_PRIMARY_CTA_SLUG = "nordvpn-vs-expressvpn-2026"
-HOMEPAGE_SECONDARY_CTA_SLUG = "best-vpn-services-2026"
+HOMEPAGE_SECONDARY_CTA_SLUG = "best-email-marketing-tools-2026"
 FEATURED_PRIORITY_SLUGS = [
     "nordvpn-vs-expressvpn-2026",
     "best-vpn-services-2026",
@@ -293,10 +293,10 @@ def build_page(reviews):
 <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"><rect width="32" height="32" rx="8" fill="#f97316"/><path d="M8 16l5 5 10-12" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>AI-Powered Product Intelligence
 </div>
 <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4 leading-tight">Buy smarter with AI-vetted reviews</h1>
-<p class="text-lg text-muted max-w-2xl mx-auto mb-6">Every product researched, compared, and rated by AI. No sponsored placements. No BS. Start with our highest-intent VPN, hosting, and security guides.</p>
+<p class="text-lg text-muted max-w-2xl mx-auto mb-6">Every product researched, compared, and rated by AI. No sponsored placements. No BS. Start with our top VPN comparison, then jump straight into the email platform shortlist for creators and businesses.</p>
 <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
 {f'''<a href="/reviews/{primary_cta["slug"]}" class="inline-flex items-center gap-2 bg-accent text-black font-semibold px-5 py-3 rounded-xl hover:opacity-90 transition-opacity">Compare top VPNs {SVG_ARROW_LG}</a>''' if primary_cta else ''}
-{f'''<a href="/reviews/{secondary_cta["slug"]}" class="inline-flex items-center gap-2 border border-card-border bg-card text-foreground font-semibold px-5 py-3 rounded-xl hover:border-accent/40 hover:text-accent transition-colors">See the best VPN picks {SVG_ARROW_LG}</a>''' if secondary_cta else ''}
+{f'''<a href="/reviews/{secondary_cta["slug"]}" class="inline-flex items-center gap-2 border border-card-border bg-card text-foreground font-semibold px-5 py-3 rounded-xl hover:border-accent/40 hover:text-accent transition-colors">Browse email marketing picks {SVG_ARROW_LG}</a>''' if secondary_cta else ''}
 </div>
 <div class="flex items-center justify-center gap-6 text-sm text-muted">
 <span class="flex items-center gap-1.5">{SVG_BAR_CHART}<strong>{count}</strong> reviews</span>
