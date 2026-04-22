@@ -221,12 +221,28 @@ def build_page(reviews):
     primary_cta = review_map.get(HOMEPAGE_PRIMARY_CTA_SLUG)
     secondary_cta = review_map.get(HOMEPAGE_SECONDARY_CTA_SLUG)
 
-    # Preload first 8 cover images
+    # Keep the homepage review grid focused on buyer-intent pages before broader content.
+    pinned_reviews = [review_map[slug] for slug in MONEY_PAGE_SLUGS if slug in review_map]
+    pinned_slugs = {r["slug"] for r in pinned_reviews}
+    homepage_reviews = pinned_reviews + [r for r in reviews if r.get("slug") not in pinned_slugs]
+
+    # Preload priority cover images first, then fill the remaining slots.
+    preload_candidates = []
+    seen_preloads = set()
+    for r in pinned_reviews + homepage_reviews:
+        slug = r.get("slug")
+        if slug in seen_preloads:
+            continue
+        seen_preloads.add(slug)
+        preload_candidates.append(r)
+        if len(preload_candidates) == 8:
+            break
+
     preloads = ""
-    for r in reviews[:8]:
+    for r in preload_candidates:
         preloads += f'<link rel="preload" href="{r["img"]}" as="image"/>'
 
-    cards = "\n".join(build_review_card(r) for r in reviews)
+    cards = "\n".join(build_review_card(r) for r in homepage_reviews)
     
     cat_pills = ""
     for slug, emoji, name in CATEGORIES:
