@@ -38,27 +38,30 @@ CATEGORIES = [
 ]
 
 MONEY_PAGE_SLUGS = [
-    "best-vpn-services-2026",
     "nordvpn-vs-expressvpn-2026",
+    "surfshark-vs-expressvpn-2026",
+    "nordvpn-coupon-2026",
+    "best-vpn-services-2026",
     "best-password-managers-2026",
     "best-web-hosting-services-2026",
-    "best-web-hosting-wordpress-2026",
-    "best-email-marketing-tools-2026",
 ]
 
 HOMEPAGE_PRIMARY_CTA_SLUG = "nordvpn-vs-expressvpn-2026"
-HOMEPAGE_SECONDARY_CTA_SLUG = "best-email-marketing-tools-2026"
+HOMEPAGE_SECONDARY_CTA_SLUG = "surfshark-vs-expressvpn-2026"
 FEATURED_PRIORITY_SLUGS = [
     "nordvpn-vs-expressvpn-2026",
+    "surfshark-vs-expressvpn-2026",
+    "nordvpn-coupon-2026",
     "best-vpn-services-2026",
     "best-password-managers-2026",
     "nordvpn-review-2026",
-    "best-web-hosting-services-2026",
 ]
 
 MONEY_PAGE_BADGES = {
     "best-vpn-services-2026": "Best VPN picks",
     "nordvpn-vs-expressvpn-2026": "VPN showdown",
+    "surfshark-vs-expressvpn-2026": "VPN comparison",
+    "nordvpn-coupon-2026": "Deal alert 🔥",
     "best-password-managers-2026": "Security picks",
     "best-web-hosting-services-2026": "Site performance",
     "best-web-hosting-wordpress-2026": "WordPress hosting",
@@ -68,6 +71,8 @@ MONEY_PAGE_BADGES = {
 MONEY_PAGE_REASONS = {
     "best-vpn-services-2026": "See the strongest VPN offers, speed winners, and privacy picks in one practical roundup.",
     "nordvpn-vs-expressvpn-2026": "Compare price, speed, streaming, and privacy before you choose.",
+    "surfshark-vs-expressvpn-2026": "Surfshark vs ExpressVPN: which gives you better speed, price, and streaming in 2026?",
+    "nordvpn-coupon-2026": "Get the latest NordVPN discount codes and deals — up to 72% off 2-year plans.",
     "best-password-managers-2026": "1Password, NordPass, Bitwarden and more, tested and ranked for 2026.",
     "best-web-hosting-services-2026": "Shortlist the fastest hosts for performance, uptime, support, and value.",
     "best-web-hosting-wordpress-2026": "Find the strongest WordPress hosting options for speed, support, and easy setup.",
