@@ -283,6 +283,9 @@ def build_page(reviews):
 </head>
 <body>
 
+<!-- Deal bar -->
+<a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=144442&url_id=902" rel="noopener sponsored nofollow" target="_blank" style="display:block;background:#f97316;color:#0a0a0a;text-align:center;padding:9px 16px;font-size:13px;font-weight:700;letter-spacing:0.02em;text-decoration:none;">🔥 Today's top deal: NordVPN — up to 72% OFF + 3 months free &nbsp;→</a>
+
 <!-- Nav -->
 <nav class="border-b border-card-border bg-card/80 backdrop-blur-md sticky top-0 z-50"><div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between"><a class="flex items-center gap-3 group" href="/"><div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"><svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"><path d="M8 16l5 5 10-12" stroke="#0a0a0a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="font-bold text-lg tracking-tight">V<span class="text-accent" style="display:inline-block;transform:scaleY(-1)">3</span>tt<span class="text-accent">3</span>d</span></a><div class="flex items-center gap-6 text-sm"><a class="text-muted hover:text-foreground transition-colors" href="/">Reviews</a><a class="text-muted hover:text-foreground transition-colors" href="/deals.html">Deals</a><a class="text-muted hover:text-foreground transition-colors" href="/about.html">About</a></div></div></nav>
 
@@ -301,7 +304,7 @@ def build_page(reviews):
 <p class="text-lg text-muted max-w-2xl mx-auto mb-6">Every product researched, compared, and rated by AI. No sponsored placements. No BS. Start with our top VPN comparison, then jump straight into the email platform shortlist for creators and businesses.</p>
 <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
 {f'''<a href="/reviews/{primary_cta["slug"]}" class="inline-flex items-center gap-2 bg-accent text-black font-semibold px-5 py-3 rounded-xl hover:opacity-90 transition-opacity">Compare top VPNs {SVG_ARROW_LG}</a>''' if primary_cta else ''}
-{f'''<a href="/reviews/{secondary_cta["slug"]}" class="inline-flex items-center gap-2 border border-card-border bg-card text-foreground font-semibold px-5 py-3 rounded-xl hover:border-accent/40 hover:text-accent transition-colors">Browse email marketing picks {SVG_ARROW_LG}</a>''' if secondary_cta else ''}
+{f'''<a href="/reviews/{secondary_cta["slug"]}" class="inline-flex items-center gap-2 border border-card-border bg-card text-foreground font-semibold px-5 py-3 rounded-xl hover:border-accent/40 hover:text-accent transition-colors">See all VPN comparisons {SVG_ARROW_LG}</a>''' if secondary_cta else ''}
 </div>
 <div class="flex items-center justify-center gap-6 text-sm text-muted">
 <span class="flex items-center gap-1.5">{SVG_BAR_CHART}<strong>{count}</strong> reviews</span>
